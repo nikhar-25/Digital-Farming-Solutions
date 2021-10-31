@@ -41,6 +41,45 @@ def recommend():
         return render_template('Crop_recommender.html', prediction_text=' {}'.format(output))
     model.close()
 
+@app.route('/Suggest',methods=['POST'])
+def suggest():
+    if request.method == 'POST':
+        Crop = str(request.form['Crop'])
+        N = int(request.form['N'])
+        P = int(request.form['P'])
+        K = int(request.form['K'])
+        
+        df = pd.read_csv('Data/fertilizer.csv')
+        
+        nr = df[df['Crop'] == Crop]['N'].iloc[0]
+        pr = df[df['Crop'] == Crop]['P'].iloc[0]
+        kr = df[df['Crop'] == Crop]['K'].iloc[0]
+
+        n = nr - N
+        p = pr - P
+        k = kr - K
+
+        temp = {abs(n): "N", abs(p): "P", abs(k): "K"}
+        max_value = temp[max(temp.keys())]
+        if max_value == "N":
+            if n < 0:
+                output = 'NHigh'
+            else:
+                output = "Nlow"
+        elif max_value == "P":
+            if p < 0:
+                output = 'PHigh'
+            else:
+                output = "Plow"
+        else:
+            if k < 0:
+                output = 'KHigh'
+            else:
+                output = "Klow"
+                
+        return render_template('Crop_recommender.html', prediction_text=' {}'.format(output))
+
+
 @app.route('/Predict',methods=['POST'])
 def predict():
     model1 = pickle.load(open('model1.pkl', 'rb'))
