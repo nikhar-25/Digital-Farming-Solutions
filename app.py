@@ -64,21 +64,21 @@ def suggest():
         max_value = temp[max(temp.keys())]
         if max_value == "N":
             if n < 0:
-                output = 'NHigh'
+                output = 'High in Nitrogen'
             else:
-                output = "Nlow"
+                output = "Low in Nitrogen"
         elif max_value == "P":
             if p < 0:
-                output = 'PHigh'
+                output = 'High in Phosphorus'
             else:
-                output = "Plow"
+                output = "Low in Phosphorus"
         else:
             if k < 0:
-                output = 'KHigh'
+                output = 'High in Potassium'
             else:
-                output = "Klow"
+                output = "Low in Potassium"
                 
-        return render_template('Fertiliser.html', prediction_text=' {}'.format(output))
+        return render_template('fertiliser.html', prediction_text=' {}'.format(output))
 
 
 @app.route('/Predict',methods=['POST'])
