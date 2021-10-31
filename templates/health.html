@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Damage predict</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+<style>
+  
+  .bg-dark{
+    font-family:Georgia, 'Times New Roman', Times, serif!important;
+    background-color:#45a29e !important;   
+}
+table.rs-table-bordered{
+    border:1px ;
+    margin-top:20px;
+  }
+table.rs-table-bordered > thead > tr > th{
+    border:1px ;
+}
+table.rs-table-bordered > tbody > tr > td{
+    border:1px ;
+}
+.page-footer
+{
+  background-color:#0b0c10;
+  color: whitesmoke;
+}
+
+.pulsingButton {
+  width: 220px;
+  text-align: center;
+  white-space: nowrap;
+  display: block;
+  margin: 50px auto;
+  padding: 10px;
+  box-shadow: 0 0 0 0 #45a29e;
+  border-radius: 10px;
+  background-color: #45a29e;
+  -webkit-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -moz-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  -ms-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+  font-size: 22px;
+  font-weight: normal;
+  font-family: sans-serif;
+  text-decoration: none !important;
+  color: #ffffff;
+  transition: all 300ms ease-in-out;
+}
+
+
+/* Comment-out to have the button continue to pulse on mouseover */
+
+a.pulsingButton:hover {
+  -webkit-animation: none;
+  -moz-animation: none;
+  -ms-animation: none;
+  animation: none;
+  color: #ffffff;
+}
+
+
+/* Animation */
+
+@-webkit-keyframes pulsing {
+  to {
+    box-shadow: 0 0 0 30px #45a29e;
+  }
+}
+
+@-moz-keyframes pulsing {
+  to {
+    box-shadow: 0 0 0 30px #45a29e;
+  }
+}
+
+@-ms-keyframes pulsing {
+  to {
+    box-shadow: 0 0 0 30px #45a29e;
+  }
+}
+
+@keyframes pulsing {
+  to {
+    box-shadow: 0 0 0 30px #45a29e;
+  }
+}
+
+</style>
+</head>
+
+<body style="background-color:#1F2833;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+      <img src="https://i.ibb.co/2YtjJQp/final2-1.png"  height="50" ><i> Digital Farming Solutions</i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link "  href="/Crop_recommender">Crop </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/fertiliser">Fertilizer </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/health">Health</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+ <div class="login">
+  <center><h2 style="text-align: center; margin: 0px; color:#66FCF1">
+    <br><b>Find out about your crop's Health</b></h2></center>
+    <br>
+     <!-- Main Input For Receiving Query to our ML -->
+     <div
+    style="
+    width: 350px;
+    margin: 0px auto;
+    color: #66FCF1;
+    border-radius: 25px;
+    padding: 10px 10px;">
+    <form action="{{ url_for('predict')}}"method="post"><table class="table table-hover rs-table-bordered ">
+      <tr><td>Insect Count</td><td>  <input type="text" name="Estimated_Insects_Count" style="font-weight: bold" placeholder="Insect Count Value" required="required" size="20"/></td></tr>
+      <tr><td>Crop Type</td><td> 
+        <input type="radio" id="0" value="0" name="Crop_Type" style="font-weight: bold" placeholder="Crop Value (0/1)" required="required" size="20" />
+        <label for="Crop">0</label>
+        <input type="radio" id="1" value="1" name="Crop_Type" style="font-weight: bold" placeholder="Crop Value (0/1)" required="required" size="20" />
+        <label for="Crop">1</label>
+      </td></tr>
+      <tr><td>Soil Type</td><td>  
+        <input type="radio" id="0" value="0" name="Soil_Type" style="font-weight: bold" placeholder="Soil Value (0/1)" required="required" size="20" />
+        <label for="Soil">0</label>
+        <input type="radio" id="1" value="1" name="Soil_Type" style="font-weight: bold" placeholder="Soil Value (0/1)" required="required" size="20" />
+        <label for="Soil">1</label>
+      </td></tr>
+      <tr><td>Pesticide Category </td><td>  
+        <input type="radio" name="Pesticide_Use_Category" id="1" value="1" style="font-weight: bold" placeholder="Pesticide Category (1/2/3)" required="required" size="20" />
+        <label for="Pesticide">1</label>
+        <input type="radio" name="Pesticide_Use_Category" id="2" value="2" style="font-weight: bold" placeholder="Pesticide Category (1/2/3)" required="required" size="20" />
+        <label for="Pesticide">2</label>
+        <input type="radio" name="Pesticide_Use_Category" id="3" value="3" style="font-weight: bold" placeholder="Pesticide Category (1/2/3)" required="required" size="20" />
+        <label for="Pesticide">3</label>
+      </td></tr>
+      <tr><td>Doses Per week</td><td><input type="text" name="Number_Doses_Week" style="font-weight: bold" placeholder="Number of Doses per week" required="required" size="20" /></td></tr>
+      <tr><td>Weeks Used</td><td><input type="text" name="Number_Weeks_Used" style="font-weight: bold" placeholder="Number of Weeks Used" required="required" size="20" /></td></tr>
+      <tr><td>Weeks Quit</td><td><input type="text" name="Number_Weeks_Quit" style="font-weight: bold" placeholder="Number of Weeks Quit" required="required" size="20" /></td></tr>
+      <tr><td>Season</td><td>  
+        <input type="radio" name="Season" id="1" value="1" style="font-weight: bold" placeholder="Season Category (1/2/3)" required="required" size="20" />
+        <label for="Season">1</label>
+        <input type="radio" name="Season" id="2" value="2" style="font-weight: bold" placeholder="Season Category (1/2/3)" required="required" size="20" />
+        <label for="Season">2</label>
+        <input type="radio" name="Season" id="3" value="3" style="font-weight: bold" placeholder="Season Category (1/2/3)" required="required" size="20" />
+        <label for="Season">3</label>
+      </td></tr>
+    </table>
+    <center><button type="submit" class="btn btn-outline-dark pulsingButton" style="background-color: #69dfc1;
+      color: #000000;">
+      Predict</button></center>
+    </form></div>
+    <div style="color: #66FCF1;">
+      <center><b>The Damage Severity for your Crop is : {{prediction_text}} </b></center>
+      </div>
+      <br>
+   </div>
+ <!-- Footer -->
+<footer class="page-footer font-small teal pt-4">
+ 
+  <!-- Footer Text -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+      <img src="https://i.ibb.co/yNFWQgW/kiit-logo-modified.png" 
+      alt="" height="150" width="150" style="padding-left:20px; padding-bottom: 30px;" >
+      <!-- Grid column -->
+      <div class="col-md-8 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold" style="color: #66FCF1;">About the Project</h6>
+        <p>This web-app was developed by Shahbaz and Nikhar as a part of their B.Tech final year Major Project, under the guidance of Prof.
+          Subhashree Mishra belonging to the School of Electronics Engineering , from KIIT Demeed to be University located in Bhubaneswar, Orissa, India. <br>
+        </p> <br>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-md-0 mb-3">
+
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold" style="color: #66FCF1;">Connect with us</h6>
+        <p><a href="https://www.linkedin.com/in/nikhar-mahendra-singh/"  target="_blank" rel="noopener noreferrer" style="color: white;">
+          Nikhar's LinkedIn</a><br>
+          <a href="https://www.linkedin.com/in/shahbazhraja/"  target="_blank" rel="noopener noreferrer" style="color: white;">Shahbaz's LinkedIn</a>
+        </p>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Text -->
+
+</footer>
+<!-- Footer -->
+
+
+<!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+
+
+</body>
+</html>

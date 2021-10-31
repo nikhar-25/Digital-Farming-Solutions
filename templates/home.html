@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.about-section{
+    background: url(https://fadzrinmadu.github.io/hosted-assets/responsive-about-us-section-using-html/pic.jpg) no-repeat left;
+    background-size: 55%;
+    background-color: #000000;
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+.inner-container{
+    width: 55%;
+    float: right;
+    background-color: #000000;
+    padding: 150px;
+}
+
+.inner-container h1{
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.text{
+    font-size: 13px;
+    color: whitesmoke;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+.skills{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 13px;
+    color: #45a29e;
+}
+
+@media screen and (max-width:1200px){
+    .inner-container{
+        padding: 80px;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .about-section{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    .inner-container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px){
+    .about-section{
+        padding: 0;
+    }
+    .inner-container{
+        padding: 60px;
+    }
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 20px;
+}
+
+.card {
+    display: grid;
+    grid-template-rows: max-content 300px 1fr;
+    background-color: #000000;
+    padding: 10px 10px 10px 10px;
+    margin: 20px;
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    cursor: pointer;
+}
+
+.card img {
+    object-fit:cover;
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px 10px 10px;
+}
+.card:hover{
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}  
+
+.bg-dark{
+    font-family:Georgia, 'Times New Roman', Times, serif!important;
+    background-color:#45a29e !important;}
+table.rs-table-bordered{
+    border:1px ;
+    margin-top:20px;
+  }
+table.rs-table-bordered > thead > tr > th{
+    border:1px ;
+}
+table.rs-table-bordered > tbody > tr > td{
+    border:1px ;
+}
+.page-footer
+{
+  background-color:#0b0c10;
+  color: whitesmoke;
+}
+.boxed
+{
+  width: 200px;
+  text-shadow:1px 1px #66FCF1;
+  color: #66FCF1;  
+  margin: 10px;
+  padding: 5px;
+}
+</style>
+</head>
+
+<body style="background-color: #000000;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+      <img src="https://i.ibb.co/2YtjJQp/final2-1.png"  height="50" ><i> Digital Farming Solutions</i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Crop_recommender">Crop </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/fertiliser">Fertilizer </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/health">Health</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="https://images.unsplash.com/photo-1511735643442-503bb3bd348a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y3JvcHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" 
+            height="600" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Crop Recommendation</h5>
+                <p>We recommend the best crop to grow in your farm based on the rainfall, humdity, temperature and the soil content.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="https://gumlet.assettype.com/bloombergquint%2F2019-10%2F6977bd18-9a46-421a-bb38-ce807199b48d%2F1.jpg?rect=0%2C375%2C3999%2C2099&w=1200&auto=format%2Ccompress&ogImage=true" 
+            height="600" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Fertilizer Recommendation</h5>
+              <p>We recommend the best kind of fertilizer to use on your farm based on the crop to be grown and the soil content.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="https://1aiw9a2cjk083ohn7j1tgaqw-wpengine.netdna-ssl.com/wp-content/uploads/2020/04/bigstock-Young-Wheat-Seedlings-Growing-242765224.jpg" 
+            height="600" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Crop Health Prediction</h5>
+              <p>We forecast the health of your crop based on the soil and pesticide and if there will be any damage to it.</p>
+          </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>  
+    
+<center><div class="boxed"><h3><b><i>What's next?</i></b></h3></div></center>
+
+<div class="cards">
+  <article class="card">
+      <header>
+          <h4 class="ch" style="color: #45a29e; text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;">Plant Disease Detection</h4>
+      </header>    
+      <img src="https://s3.eu-west-2.amazonaws.com/growinginteractive/diseases/bean-rust.jpg" alt="Disease detection">
+      <div class="content">
+          <p style="color: whitesmoke;"> Implementing a Convolutional Neural Network to identify the various diseases present in plants. </p>
+      </div>
+  </article>
+  <article class="card">
+    <header>
+        <h4  class="ch" style="color: #45a29e;  text-align: center; font-family: Georgia, 'Times New Roman', Times, serif"> Plant Reintroduction Forecast</h4>
+    </header>    
+    <img src="https://i.ibb.co/RHcCsrB/Eg3-6uh-Vg-AE08-Cg.jpg"  alt="Plant Re-introduction">
+    <div class="content">
+        <p style="color: whitesmoke;"> Implementing a Machine Learning Model to forecast the outcomes of reintroduction of endangered plants in various regions. </p>
+    </div>
+  </article>
+  <article class="card">
+    <header>
+        <h4 class="ch" style="color: #45a29e;  text-align: center; font-family: Georgia, 'Times New Roman', Times, serif">Crop Price Forecasting</h4>
+    </header>    
+    <img src="https://media01.stockfood.com/largepreviews/MTIxOTQwMzY=/00393356-Various-types-of-cereal-grains-in-paper-bags.jpg" alt="Crop Price">
+    <div class="content">
+        <p style="color: whitesmoke; "> Implementing a Machine Learning model to forecast the price for crops based on yield rates helping in pricing strategies for a given crop. </p>
+    </div>
+</article>
+</div>
+
+<br>
+
+<div class="about-section">
+  <div class="inner-container">
+    <h1 style="color: #66FCF1;">About Us</h1>
+    <p class="text">
+    Shahbaz Hasan Raja and Nikhar Mahendra Singh are classmates pursuing a Bachelor's in Technology in Electronics and Computer Science. They 
+    worked in unison to bring this project to life. Nikhar created the models and deployed them , whereas Shahbaz fetched and curated the data and thereafter created the web-app.
+    They aspire to be Software Development Engineers.
+    </p>
+    <div class="skills">
+      <span>Machine Learning</span>
+      <span>Deep Learning</span>
+      <span>Front-End</span>
+      <span>Coding</span>
+    </div>
+  </div>
+</div>
+
+<br>
+ 
+ <!-- Footer -->
+<footer class="page-footer font-small teal pt-4">
+ 
+  <!-- Footer Text -->
+  <div class="container-fluid text-center text-md-left">
+
+    <!-- Grid row -->
+    <div class="row">
+      <img src="https://i.ibb.co/yNFWQgW/kiit-logo-modified.png" class="img-fluid"
+      alt="" height="150" width="150" style="padding-left:20px; padding-bottom: 30px;" >
+      <!-- Grid column -->
+      <div class="col-md-8 mt-md-0 mt-3">
+
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold" style="color: #66FCF1;">About the Project</h6>
+        <p>This web-app was developed by Shahbaz and Nikhar as a part of their B.Tech final year Major Project, under the guidance of Prof.
+          Subhashree Mishra belonging to the School of Electronics Engineering , from KIIT Demeed to be University located in Bhubaneswar, Orissa, India. <br>
+        </p> <br>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-md-0 mb-3">
+
+        <!-- Content -->
+        <h6 class="text-uppercase font-weight-bold" style="color: #66FCF1;">Connect with us</h6>
+        <p><a href="https://www.linkedin.com/in/nikhar-mahendra-singh/"  target="_blank" rel="noopener noreferrer" style="color: white;">
+          Nikhar's LinkedIn</a><br>
+          <a href="https://www.linkedin.com/in/shahbazhraja/"  target="_blank" rel="noopener noreferrer" style="color: white;">Shahbaz's LinkedIn</a>
+        </p>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Text -->
+
+</footer>
+<!-- Footer -->
+
+<!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+
+
+</body>
+</html>
