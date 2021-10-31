@@ -133,7 +133,7 @@ a.pulsingButton:hover {
      color: #66FCF1;
      border-radius: 25px;
      padding: 10px 10px;">
-    <form action="{{ url_for('predict')}}"method="post"><table class="table table-hover rs-table-bordered ">
+    <form action="{{ url_for('suggest')}}"method="post"><table class="table table-hover rs-table-bordered ">
     	<tr><td>Crop  </td><td>  <input type="text" name="Crop" style="font-weight: bold" list="Crop" placeholder="Select from List" required="required" size="20"/>
         <datalist id="Crop">
           <option value="apple">
@@ -169,7 +169,7 @@ a.pulsingButton:hover {
         Suggest</button></center>
       </form></div>
       <div style="color: #66FCF1;">
-      <center><b>The Recomended Fertiliser for you is : {{prediction_text}} </b></center>
+      <center><b>The Soil content is : {{prediction_text}} </b></center>
       </div>
       <br>
  </div>
