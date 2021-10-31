@@ -77,11 +77,7 @@ def suggest():
             else:
                 output = "Klow"
                 
-<<<<<<< Updated upstream
-        return render_template('Crop_recommender.html', prediction_text=' {}'.format(output))
-=======
         return render_template('Fertiliser.html', prediction_text=' {}'.format(output))
->>>>>>> Stashed changes
 
 
 @app.route('/Predict',methods=['POST'])
