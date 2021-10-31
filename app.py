@@ -78,7 +78,7 @@ def suggest():
             else:
                 output = "Klow"
                 
-        return render_template('Fertiliser.html', prediction_text=' {}'.format(output))
+        return render_template('fertiliser.html', prediction_text=' {}'.format(output))
 
 
 @app.route('/Predict',methods=['POST'])
