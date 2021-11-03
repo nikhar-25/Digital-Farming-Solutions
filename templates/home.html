@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <!--Scroll reveal CDN-->
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="mystyle_home">
+    <link rel="stylesheet" href="{{ url_for('static', filename='static/mystyle_home.css'}}">
 </head>
 
 
@@ -238,7 +238,7 @@
         </div>
     </footer>
     
-<script src="/main_home">
+<script src="{{ url_for('static', filename='static/main_home.js'}}">
 </script>
 </body>
 </html>
