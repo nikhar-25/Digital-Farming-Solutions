@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Landing Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Cabin|Herr+Von+Muellerhoff|Source+Sans+Pro:400,900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-family: 'Roboto', sans-serif;
+            font-size: 10px;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        header {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 3%;
+            left: 1%;
+            padding-right: 5rem !important;
+        }
+        
+        .main-nav {
+            width: 100%;
+            height: 10rem;
+            padding: 0 2.5em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hamburger-menu {
+            position: absolute;
+            right: 2%;
+            height: 4rem;
+            width: 4rem;
+            background-color: #eee;
+            border-radius: .4rem;
+            box-shadow: .5rem .5rem 1rem #cacaca, -.5rem -.5rem 1rem #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+        
+        .hamburger-menu:hover {
+            box-shadow: insent .5rem .5rem 1rem #cacaca, insent -.5rem -.5rem 1rem #fff;
+        }
+        
+        .bar {
+            width: 3rem;
+            height: 2px;
+            background-color: #333;
+            display: inline-block;
+            position: relative;
+            transition: background-color .5s;
+        }
+        
+        .bar::before,
+        .bar::after {
+            content: "";
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            background-color: #333;
+            transition: all .5s;
+        }
+        
+        .bar::before {
+            top: -.8rem;
+        }
+        
+        .bar::after {
+            top: .8rem;
+        }
+        
+        .open .bar {
+            background-color: transparent;
+        }
+        
+        .open .bar::before {
+            top: 0;
+            transform: rotate(135deg);
+        }
+        
+        .open .bar::after {
+            top: 0;
+            transform: rotate(-135deg);
+        }
+        
+        .nav-list {
+            width: 45rem;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #1f2833;
+            transform: translateX(55rem);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            box-shadow: -5rem 0 1rem rgba(0, 0, 0, .2);
+            z-index: 1500;
+            transition: transform .5s;
+        }
+        
+        .open .nav-list {
+            transform: translateX(0);
+        }
+        
+        .nav-item {
+            list-style: none;
+            border-bottom: 2px solid #45a29e;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            display: block;
+            color: #c5c6c7;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            padding: .5rem;
+            font-weight: 700;
+            transition: color .5s;
+        }
+        
+        .nav-link:hover {
+            color: #66fcf1;
+            transform: scale(1.125)
+        }
+        
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background: url("{{ url_for('static', filename='images/bg3.jpg')}}") center no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, .3);
+        }
+        
+        .hero-clipped {
+            width: 60%;
+            height: inherit;
+            background-color: #0b0c10;
+            position: absolute;
+            top: 0;
+            right: 0;
+            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+            z-index: 10;
+            transform-origin: right;
+        }
+        
+        .hero-textbox {
+            width: 100%;
+            position: absolute;
+            top: 58%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Lato', sans-serif;
+            text-align: center;
+            line-height: 1.5;
+            color: #c5c6c7;
+            padding-left: 8.98rem;
+            z-index: 20;
+        }
+        
+        .main-heading {
+            font-size: 5.3rem;
+            font-weight: 900;
+            letter-spacing: 1rem;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 1px #c5c6c7;
+            background-image: url({{ url_for('static', filename='images/back.jpg')}});
+            -webkit-background-clip: text;
+            background-clip: text;
+            background-position: 0 0;
+            animation: back 20s linear infinite;
+        }
+        
+        @keyframes back {
+            100% {
+                background-position: 2500px 0;
+            }
+        }
+        
+        .sub-heading {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: .5px;
+        }
+        
+        .cta-btn {
+            text-transform: uppercase;
+            display: inline-block;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #45a29e;
+            padding: 1rem 4rem;
+            margin-top: 5rem;
+            border-radius: .4rem;
+            box-shadow: 3px 3px 1rem rgba(0, 0, 0 .3);
+            position: relative;
+        }
+        
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: inherit;
+            border-radius: inherit;
+            z-index: -1;
+        }
+        
+        .cta-btn:hover::after {
+            transform: scaleX(1.2) scaleY(1.6);
+            opacity: 0;
+            transition: all .5s;
+        }
+        
+        @media screen and (max-width: 1260px) {
+            .hero-clipped {
+                width: 100%;
+                height: 75vh;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 60%);
+            }
+        }
+        
+        @media screen and (max-width:760px) {
+            .nav-list {
+                width: 30rem;
+            }
+            .main-heading {
+                font-size: 4rem;
+            }
+            .sub-heading {
+                font-size: 1.2rem;
+            }
+            .cta-btn {
+                padding: 1.25rem 2.5rem;
+            }
+        }
+        
+        @media screen and (max-width:550px) {
+            .main-heading {
+                font-size: 2.5rem;
+            }
+            .sub-heading {
+                font-size: 1rem;
+            }
+            .cta-btn {
+                margin-top: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="main-nav">
+            <a href="/" class="logo"><img src="https://i.ibb.co/1qgkf0b/logo.png" height=70 alt=""></a>
+            <div class="hamburger-menu">
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="/home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Crop_recommender" class="nav-link">Crop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/fertiliser" class="nav-link">Fertilizer</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/health" class="nav-link">Health</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/About Us" class="nav-link">About</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-clipped">
+            <div class="hero-textbox">
+                <h1 class="main-heading">Digital Farming</h1>
+                <h2 class="sub-heading">Applying Machine Learning in Agriculture</h2>
+                <a href="/home" class="cta-btn">Explore &#x27f6;</a>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+
+    <script>
+        const mainNav = document.querySelector('.main-nav');
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+
+        hamburgerMenu.addEventListener('click', function() {
+            mainNav.classList.toggle('open');
+        });
+
+        gsap.fromTo('.hero-clipped', {
+            scaleX: 0
+        }, {
+            duartion: 1,
+            scaleX: 1
+        });
+
+        gsap.fromTo('.logo', {
+            x: -200,
+            opacity: 0
+        }, {
+            duartion: 1,
+            delay: 0.5,
+            x: 0,
+            opacity: 1
+        });
+
+        gsap.fromTo('.hamburger-menu', {
+            x: 200,
+            opacity: 0
+        }, {
+            duartion: 1,
+            delay: 0.8,
+            x: 0,
+            opacity: 1
+        });
+
+        gsap.fromTo('.hero-textbox', {
+            yPercent: 40,
+            opacity: 0
+        }, {
+            duartion: 1,
+            delay: 1.3,
+            yPercent: -50,
+            opacity: 1
+        });
+    </script>
+</body>
+
+</html>

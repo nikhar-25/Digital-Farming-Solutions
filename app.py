@@ -6,8 +6,12 @@ import pickle
 app = Flask(__name__)
 
 @app.route('/')
-def home():
-    return render_template('home.html')
+def land():
+    return render_template('landing_page.html')
+
+@app.route('/landing_page')
+def reland():
+    return render_template('landing_page.html')
 
 @app.route('/home')
 def rehome():
