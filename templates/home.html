@@ -2,237 +2,270 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home Page</title>
-    <!--Font awesome CDN-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <!--Scroll reveal CDN-->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle_home.css')}}">
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home Page</title>
+  <!--Font awesome CDN-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <!--Scroll reveal CDN-->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle_home.css')}}">
 </head>
 
-
 <body>
-    <header>
-        <div class="container">
-            <nav class="nav">
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                    <i class="fas fa-times"></i>
-                </div>
-                <a href="/" class="logo"><img src="https://i.ibb.co/1qgkf0b/logo.png" height="70" alt=""></a>
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="/home" class="nav-link active">Home</a>
-                        </liv>
-                        <li class="nav-item">
-                            <a href="/Crop_recommender" class="nav-link">Crop </a>
-                            </liv>
-                            <li class="nav-item">
-                                <a href="/fertiliser" class="nav-link">Fertilizer</a>
-                                </liv>
-                                <li class="nav-item">
-                                    <a href="/health" class="nav-link">Health</a>
-                                    </liv>
-                                    <li class="nav-item">
-                                        <a href="/About Us" class="nav-link">About</a>
-                                        </liv>
-                </ul>
-            </nav>
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div class="menu-toggle">
+          <i class="fas fa-bars"></i>
+          <i class="fas fa-times"></i>
         </div>
-    </header>
-    <!--header ends-->
-    <section class="hero" id="hero">
-        <div class="container">
+        <a href="/" class="logo"><img src="https://i.ibb.co/1qgkf0b/logo.png" height="70" alt=""></a>
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="/home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="/crop" class="nav-link">Crop </a>
+          </li>
+          <li class="nav-item">
+            <a href="/fertiliser" class="nav-link">Fertilizer</a>
+          </li>
+          <li class="nav-item">
+            <a href="/health" class="nav-link">Health</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!--header ends-->
+  <section class="hero" id="hero">
+    <div class="container">
+      <h2 class="sub-headline">
+        <span class="first-letter">W</span>elcome to
+      </h2>
+      <h1 class="headline">Digital Farming Solutions</h1>
+      <div class="headline-description">
+        <div class="separator">
+          <div class="line line-left"></div>
+          <div class="asterisk"><i class="fas fa-asterisk"></i></div>
+          <div class="line line-right"></div>
+        </div>
+        <div class="single-animation">
+          <h5> We are ready to assist you</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!---hero ends-->
+  <section class="discover-our-story">
+    <div class="container">
+      <div class="resturant-info">
+        <div class="resturant-description padding-right animate-left">
+          <div class="global-headline">
             <h2 class="sub-headline">
-                <span class="first-letter">W</span>elcome to
+              <span class="first-letter">D</span>iscover
             </h2>
-            <h1 class="headline">Digital Farming Solutions</h1>
-            <div class="headline-description">
-                <div class="separator">
-                    <div class="line line-left"></div>
-                    <div class="asterisk"><i class="fas fa-asterisk"></i></div>
-                    <div class="line line-right"></div>
-                </div>
-                <div class="single-animation">
-                    <h5> We are ready to assist you</h5>
-                </div>
-            </div>
+            <h1 class="headline headline-dark">Our Story</h1>
+            <div class="asterisk"><i class="fas fa-asterisk"></i></div>
+
+          </div>
+          <p class="texts"> We are an enthusiastic pair of classmates, striving to inculcate Machine Learning
+            and Artifical Intelligence into daily human lives. Digital Farming Solutions, is our attempt to
+            use today's cutting edge technology to provide state-of-the-art
+            solutions to people in the field of Agriculture, and help them increase the quality and quantity
+            of their produce.
+          </p>
         </div>
-    </section>
-    <!---hero ends-->
-    <section class="discover-our-story">
-        <div class="container">
-            <div class="resturant-info">
-                <div class="resturant-description padding-right animate-left">
-                    <div class="global-headline">
-                        <h2 class="sub-headline">
-                            <span class="first-letter">D</span>iscover
-                        </h2>
-                        <h1 class="headline headline-dark">Our Story</h1>
-                        <div class="asterisk"><i class="fas fa-asterisk"></i></div>
+        <div class="resturant-info-img animate-right">
+          <img
+            src="https://media.istockphoto.com/vectors/artificial-intelligence-neural-network-ai-with-digital-brain-is-face-vector-id1145990155?k=20&m=1145990155&s=612x612&w=0&h=fCdHHleOG1GMcmYqzfr_6lQySijag46f2NxsmBugG-s="
+            alt="">
 
-                    </div>
-                    <p class="texts"> We are an enthusiastic pair of classmates, striving to inculcate Machine Learning and Artifical Intelligence into daily human lives. Digital Farming Solutions, is our attempt to use today's cutting edge technology to provide state-of-the-art
-                        solutions to people in the field of Agriculture, and help them increase the quality and quantity of their produce.
-                    </p>
-                </div>
-                <div class="resturant-info-img animate-right">
-                    <img src="https://media.istockphoto.com/vectors/artificial-intelligence-neural-network-ai-with-digital-brain-is-face-vector-id1145990155?k=20&m=1145990155&s=612x612&w=0&h=fCdHHleOG1GMcmYqzfr_6lQySijag46f2NxsmBugG-s=" alt="">
-
-                </div>
-            </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!--discover our story ends-->
+  <!--discover our story ends-->
 
-    <section class="tasteful-recipes between">
-        <div class="container">
-            <div class="global-headline">
-                <div class="animate-top">
-                    <h2 class="sub-headline">
-                        <span class="first-letter">I</span>nnovative
-                    </h2>
-                </div>
-                <div class="animate-bottom">
-                    <h1 class="headline ">Technologies</h1>
-                </div>
-            </div>
+  <section class="tasteful-recipes between">
+    <div class="container">
+      <div class="global-headline">
+        <div class="animate-top">
+          <h2 class="sub-headline">
+            <span class="first-letter">I</span>nnovative
+          </h2>
         </div>
-    </section>
-
-    <!---tasteful recepie ends-->
-
-    <sec class="discover-our-menu">
-        <div class="container">
-            <div class="resturant-info">
-                <div class="image-group padding-right animate-left">
-                    <img class="img-adj" src="https://images.unsplash.com/photo-1511735643442-503bb3bd348a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y3JvcHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt=""></img>
-                    <img class="img-adj" src="https://www.swiss-singapore.com/wp-content/uploads/2017/06/shutterstock_294133898.jpg" alt=""></img>
-                    <img class="img-adj" src="https://1aiw9a2cjk083ohn7j1tgaqw-wpengine.netdna-ssl.com/wp-content/uploads/2020/04/bigstock-Young-Wheat-Seedlings-Growing-242765224.jpg" alt=""></img>
-                    <img class="img-adj" src="https://i.ibb.co/RHcCsrB/Eg3-6uh-Vg-AE08-Cg.jpg" alt=""></img>
-                </div>
-                <div class="resturant-description animate-right">
-                    <div class="global-headline">
-                        <h2 class="sub-headline">
-                            <span class="first-letter">D</span>iscover
-                        </h2>
-                        <h1 class="headline headline-dark">our products
-                        </h1>
-                        <div class="asterisk"><i class="fas fa-asterisk"></i>
-                        </div>
-                    </div>
-                    <p>We offer a range of products , like :<b> Crop Recommendation Model</b> - A model that recommends the best crop to grow in your farm based on the rainfall, humdity, temperature and the soil content.
-                        <b>Fertilizer Recommendation Model</b> - A model that recommends the best kind of fertilizer to use on your land based on the crop to be grown and nutrients the soil is lacking.
-                        <b>Crop Health Prediction Model</b> - A model that forecasts the health of crops based on the soil content, pesticide used and insect attacks(if any).
-                    </p>
-                </div>
-            </div>
+        <div class="animate-bottom">
+          <h1 class="headline ">Technologies</h1>
         </div>
-    </sec>
-    <br>
-    <!--discover our menu ends-->
-    <section class="perfect-blend between">
-        <div class="container">
-            <div class="global-headline">
-                <div class="animate-top">
-                    <h2 class="sub-headline">
-                        <span class="first-letter">N</span>ew and
-                    </h2>
-                </div>
-                <div class="animate-bottom">
-                    <h1 class="headline">Upcoming Products</h1>
-                </div>
-            </div>
+      </div>
+    </div>
+  </section>
+
+  <!---tasteful recepie ends-->
+
+  <sec class="discover-our-menu">
+    <div class="container">
+      <div class="resturant-info">
+        <div class="image-group padding-right animate-left">
+          <img class="img-adj"
+            src="https://images.unsplash.com/photo-1511735643442-503bb3bd348a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y3JvcHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
+            alt=""></img>
+          <img class="img-adj"
+            src="https://www.swiss-singapore.com/wp-content/uploads/2017/06/shutterstock_294133898.jpg" alt=""></img>
+          <img class="img-adj"
+            src="https://1aiw9a2cjk083ohn7j1tgaqw-wpengine.netdna-ssl.com/wp-content/uploads/2020/04/bigstock-Young-Wheat-Seedlings-Growing-242765224.jpg"
+            alt=""></img>
+          <img class="img-adj" src="https://i.ibb.co/RHcCsrB/Eg3-6uh-Vg-AE08-Cg.jpg" alt=""></img>
         </div>
-    </section>
-    <!--perfect blend ends-->
-
-    <section class="culinary-delight">
-        <div class="container">
-            <div class="resturant-info">
-                <div class="resturant-description padding-right animate-left">
-                    <div class="global-headline">
-                        <h2 class="sub-headline">
-                            <span class="first-letter">W</span>hat's next
-                        </h2>
-                        <h1 class="headline headline-dark">for us?</h1>
-                        <div class="asterisk"><i class="fas fa-asterisk"></i></div>
-
-                    </div>
-                    <p class="texts"> Implementing a Convolutional Neural Network to identify the various diseases present in plants. Implementing a Machine Learning Model to forecast the outcomes of reintroduction of endangered plants in various regions. Implementing
-                        a Machine Learning model to forecast the price for crops based on yield rates helping in pricing strategies for a given crop.
-                    </p>
-                </div>
-                <div class="image-group">
-
-                    <img class='animate-top' width=350 height=250 src="https://images.unsplash.com/photo-1602332659518-1e068472e7ab?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGxhbnQlMjBkaXNlYXNlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="">
-                    <img class='animate-bottom' width=350 height=250 src="https://media01.stockfood.com/largepreviews/MTIxOTQwMzY=/00393356-Various-types-of-cereal-grains-in-paper-bags.jpg" alt="">
-
-                </div>
+        <div class="resturant-description animate-right">
+          <div class="global-headline">
+            <h2 class="sub-headline">
+              <span class="first-letter">D</span>iscover
+            </h2>
+            <h1 class="headline headline-dark">our products
+            </h1>
+            <div class="asterisk"><i class="fas fa-asterisk"></i>
             </div>
+          </div>
+          <p>We offer a range of products , like :<b> Crop Recommendation Model</b> - A model that recommends
+            the best crop to grow in your farm based on the rainfall, humdity, temperature and the soil
+            content.
+            <b>Fertilizer Recommendation Model</b> - A model that recommends the best kind of fertilizer to
+            use on your land based on the crop to be grown and nutrients the soil is lacking.
+            <b>Crop Health Prediction Model</b> - A model that forecasts the health of crops based on the
+            soil content, pesticide used and insect attacks(if any).
+          </p>
         </div>
-    </section>
-    <br>
-    <footer>
-        <div class="container">
-            <div class="back-to-top">
-                <a href="#hero">
-                    <i class="fas fa-chevron-up">
-
-                    </i>
-                </a>
-            </div>
-            <div class="footer-content">
-                <div class="footer-content-about animate-top">
-                    <h4>
-                        About Project
-                    </h4>
-                    <div class="asterisk">
-                        <i class="fas fa-asterisk">       
-                    </i>
-                    </div>
-                    <p>
-                        This web-app was developed by Shahbaz and Nikhar as a part of their B.Tech final year Major Project, under the guidance of Prof. Subhashree Mishra belonging to the School of Electronics Engineering , from KIIT Demeed to be University located in Bhubaneswar,
-                        Orissa, India.
-                    </p>
-                </div>
-                <div class="footer-content footer-content-divider animate-bottom">
-                    <div class="social-media">
-                        <h4>Follow along</h4>
-                        <ul class="social-icons">
-                            <li>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fab fa-facebook-square"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fab fa-pinterest"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="newsletter-conatiner">
-                        <h4>Newsletter</h4>
-                        <form action="" class="newsletter-form"></form>
-                        <input type="text" class="newsletter-input" placeholder="Your Email Address">
-                        <button class="newsletter-btn" type="submit">
-                            <i class="fas fa-envelope"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+      </div>
+    </div>
+  </sec>
+  <br>
+  <!--discover our menu ends-->
+  <section class="perfect-blend between">
+    <div class="container">
+      <div class="global-headline">
+        <div class="animate-top">
+          <h2 class="sub-headline">
+            <span class="first-letter">N</span>ew and
+          </h2>
         </div>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
-    <script src="{{ url_for('static', filename='js/main_home.js')}}">
-    </script>
+        <div class="animate-bottom">
+          <h1 class="headline">Upcoming Products</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--perfect blend ends-->
+
+  <section class="culinary-delight">
+    <div class="container">
+      <div class="resturant-info">
+        <div class="resturant-description padding-right animate-left">
+          <div class="global-headline">
+            <h2 class="sub-headline">
+              <span class="first-letter">W</span>hat's next
+            </h2>
+            <h1 class="headline headline-dark">for us?</h1>
+            <div class="asterisk"><i class="fas fa-asterisk"></i></div>
+
+          </div>
+          <p class="texts"> Implementing a Convolutional Neural Network to identify the various diseases
+            present in plants. Implementing a Machine Learning Model to forecast the outcomes of
+            reintroduction of endangered plants in various regions. Implementing
+            a Machine Learning model to forecast the price for crops based on yield rates helping in pricing
+            strategies for a given crop.
+          </p>
+        </div>
+        <div class="image-group">
+
+          <img class='animate-top' width=350 height=250
+            src="https://images.unsplash.com/photo-1602332659518-1e068472e7ab?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGxhbnQlMjBkaXNlYXNlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"
+            alt="">
+          <img class='animate-bottom' width=350 height=250
+            src="https://media01.stockfood.com/largepreviews/MTIxOTQwMzY=/00393356-Various-types-of-cereal-grains-in-paper-bags.jpg"
+            alt="">
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <footer style="margin-top: 10rem;">
+    <div class="container">
+      <div class="back-to-top">
+        <a href="#hero">
+          <i class="fas fa-chevron-up">
+
+          </i>
+        </a>
+      </div>
+      <div class="footer-content">
+        <div class="footer-content-about animate-top">
+          <h4>
+            About Project
+          </h4>
+          <div class="asterisk">
+            <i class="fas fa-asterisk">
+            </i>
+          </div>
+          <div style='display:flex; align-items: center; justify-content: space-between; width: 100%;'>
+            <img src='https://i.ibb.co/yNFWQgW/kiit-logo-modified.png' style='width: 20%; height: 20%;' />
+            <p style='height: 30%;'>
+              This web-app was developed by Shahbaz and Nikhar as a part of their B.Tech final year Major
+              Project, under the guidance of Prof. Subhashree Mishra belonging to the School of
+              Electronics Engineering , from KIIT Demeed to be University located in Bhubaneswar,
+              Orissa, India.
+            </p>
+          </div>
+        </div>
+        <div class="footer-content footer-content-divider animate-bottom">
+          <div class="social-media">
+            <h4>Follow along</h4>
+            <ul class="social-icons">
+              <li>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-facebook-square"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="newsletter-conatiner">
+            <h4>Newsletter</h4>
+            <form action="" class="newsletter-form"></form>
+            <input type="text" class="newsletter-input" placeholder="Your Email Address">
+            <button class="newsletter-btn" type="submit">
+              <i class="fas fa-envelope"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+  <script src="{{ url_for('static', filename='js/main_home.js')}}"></script>
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+    $(function(){
+        $('a').each(function(){
+            if ($(this).prop('href') == window.location.href) {
+                $(this).addClass('active');
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

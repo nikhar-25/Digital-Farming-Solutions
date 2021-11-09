@@ -17,9 +17,9 @@ def reland():
 def rehome():
     return render_template('home.html')
 
-@app.route('/Crop_recommender')
+@app.route('/crop')
 def crop():
-    return render_template('Crop_recommender.html')
+    return render_template('crop.html')
 
 @app.route('/fertiliser')
 def fertiliser():
@@ -43,7 +43,7 @@ def recommend():
         final_features = np.array([[N, P, K, temperature, humidity, ph, rainfall]])
         prediction = model.predict(final_features)
         output = prediction[0]
-        return render_template('Crop_recommender.html', prediction_text=' {}'.format(output))
+        return render_template('crop.html', prediction_text=' {}'.format(output))
     model.close()
 
 @app.route('/Suggest',methods=['POST'])

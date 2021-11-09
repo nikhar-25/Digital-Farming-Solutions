@@ -560,8 +560,8 @@ footer {
         margin: auto;
     }
     .footer-content-about {
-        max-width: 51.3rem;
-        margin: 0 auto 5.4rem;
+        /* max-width: 51.3rem; */
+        margin: 5rem auto;
     }
     .footer-content-divider {
         display: flex;

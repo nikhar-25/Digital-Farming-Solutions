@@ -4,7 +4,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
-  <title>Fertilizer</title>
+  <title>Crop</title>
   <!--Font awesome CDN-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <!--Scroll reveal CDN-->
@@ -15,8 +15,8 @@
   <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-  <link href='fertiliser.css' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/fertiliser.css')}}">
+  <link href='crop.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/crop.css')}}">
 </head>
 
 <body style="background-color:#1F2833;">
@@ -48,71 +48,74 @@
   <div class="login">
     <center>
       <h2 style="text-align: center; margin: 8rem 0px 2rem 0px; color:#66FCF1; font-size: 28px;">
-        <br><b>Find out the best Fertiliser for your Crop</b>
+        <br><b>Find out the best crop for your farm </b>
       </h2>
     </center>
     <br>
     <!-- Main Input For Receiving Query to our ML -->
     <div class='form-cont'>
-      <form action="{{ url_for('suggest')}}" method="post">
+      <form action="{{ url_for('recommend')}}" method="post">
         <div style="display: flex; flex-direction: column;">
-          <label>Crop</label> <input type="text" name="Crop" style="font-weight: bold" list="Crop"
-            placeholder="Select from List" required="required" size="20" class='ml-input' />
-          <datalist id="Crop">
-            <option value="apple">
-            <option value="banana">
-            <option value="blackgram">
-            <option value="chickpea">
-            <option value="coconut">
-            <option value="coffee">
-            <option value="cotton">
-            <option value="grapes">
-            <option value="jute">
-            <option value="kidneybeans">
-            <option value="lentil">
-            <option value="maize">
-            <option value="mango">
-            <option value="mothbeans">
-            <option value="mungbean">
-            <option value="muskmelon">
-            <option value="orange">
-            <option value="papaya">
-            <option value="pigeonpeas">
-            <option value="pomegranate">
-            <option value="rice">
-            <option value="watermelon">
-          </datalist>
+          <div class="input-cont">
+            <label>Nitrogen</label>
+            <input type="text" name="N" style="font-weight: bold" placeholder="0-140" required="required" size="20"
+              class='ml-input' />
+          </div>
+          <div class="input-cont">
+            <label>Phosphorous</label>
+            <input type="text" name="P" style="font-weight: bold" placeholder="5-145" required="required" size="20"
+              class='ml-input' />
+          </div>
+          <div class="input-cont">
+            <label>Potassium</label>
+            <input type="text" name="K" style="font-weight: bold" placeholder="5-205" required="required" size="20"
+              class='ml-input' />
+          </div>
+          <div class="input-cont">
+            <label>Temperature</label>
+            <input type="text" style="font-weight: bold" name="temperature" placeholder="value (in °C)"
+              required="required" size="20" class='ml-input' />
+          </div>
+          <div class="input-cont">
+            <label>Humidity</label>
+            <input type="text" name="humidity" style="font-weight: bold" placeholder="14.0-100" required="required"
+              size="20" class='ml-input' />
+          </div>
+          <div class="input-cont">
+            <label>pH</label>
+            <input type="text" name="ph" style="font-weight: bold" placeholder="0-14" required="required" size="20"
+              class='ml-input' />
+          </div>
+          <div class="input-cont">
+            <label>Rainfall</label>
+            <input type="text" name="rainfall" style="font-weight: bold" placeholder="0-300" required="required"
+              size="20" class='ml-input' />
+          </div>
         </div>
-        <div class="input-cont">
-          <label>Nitrogen</label>
-          <input type="text" name="N" style="font-weight: bold" placeholder="0-140" required="required" size="20"
-            class='ml-input' />
-        </div>
-        <div class="input-cont">
-          <label>Phosphorous</label>
-          <input type="text" name="P" style="font-weight: bold" placeholder="5-145" required="required" size="20"
-            class='ml-input' />
-        </div>
-        <div class="input-cont">
-          <label>Potassium</label>
-          <input type="text" name="K" style="font-weight: bold" placeholder="5-205" required="required" size="20"
-            class='ml-input' />
-        </div>
-        <di class="input-cont" v>
-          <label>Soil Moisture</label>
-          <input type="text" name="soil_moisture" style="font-weight: bold" placeholder="Moisture Content Value"
-            required="required" size="20" class='ml-input' />
-          <center><button type="submit" class="btn rec-btn" style="background-color: #69dfc1;
-              color: #000000;">
-              Suggest</button></center>
+      </form>
+      <center><button type="submit" class="btn rec-btn">
+          Recommend</button></center>
+      </form>
     </div>
-    </form>
+    <div style="color: #66FCF1; padding: 30px 0;">
+      <center><b>The Recomended Crop for you is : {{prediction_text}} </b></center>
+    </div>
+    <br>
   </div>
-  <div style="color: #66FCF1;margin: 6rem auto; max-width: 90%;">
-    <center><b>The Soil content is : {{prediction_text}} </b></center>
+  <center>
+    <h3 style="text-align: center; margin: 5rem 0px; color:#66FCF1; max-width: 90%;">
+      <br><b>Some insight into the dataset, this Supervised Machine Learning Model is based upon:</b>
+    </h3>
+  </center>
+  <div class="plot-flex">
+  <iframe width="600" height="500" frameborder="0" scrolling="no"
+    src="//plotly.com/~deathblade1104/13.embed?autosize=true&link=false&modebar=false&logo=false&width=100%"></iframe>
+  nbsp;
+  <iframe width="600" height="500" frameborder="0" scrolling="no"
+    src="//plotly.com/~deathblade1104/14.embed?autosize=true&link=false&modebar=false&logo=false&width=100%"></iframe>
   </div>
   <br>
-  </div>
+  <br>
   <!-- Footer -->
   <footer style="margin-top: 10rem;">
     <div class="container">
@@ -172,9 +175,13 @@
       </div>
     </div>
   </footer>
+  <!-- JQuery -->
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
   <script src="{{ url_for('static', filename='js/main_home.js')}}"></script>

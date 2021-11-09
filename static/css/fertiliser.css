@@ -1,0 +1,85 @@
+.bg-dark {
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
+    background-color: #45a29e !important;
+  }
+
+  table.rs-table-bordered {
+    border: 1px;
+    margin-top: 20px;
+  }
+
+  table.rs-table-bordered>thead>tr>th {
+    border: 1px;
+  }
+
+  table.rs-table-bordered>tbody>tr>td {
+    border: 1px;
+  }
+
+  .page-footer {
+    background-color: #0b0c10;
+    color: whitesmoke;
+  }
+
+  .input-cont {
+    padding: 7px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+  }
+
+  body {
+    overflow-x: hidden;
+    font-size: 18px;
+  }
+
+  header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-size: 20px;
+
+  }
+
+  .logo {
+    position: absolute;
+    top: 3%;
+    left: 1%;
+    padding-right: 5rem !important;
+  }
+
+  .rec-btn {
+    background-color: #69dfc1; 
+    margin-top: 30px;
+    color: #000000; 
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 5px 12px;
+  }
+
+  .rec-btn:hover {
+    transition: transform 0.5s;
+    transform: scale(1.05);
+  }
+
+  .ml-input {
+    border: 0;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0 10px;
+  }
+
+.form-cont {
+    width: 500px;
+    margin: 2rem auto;
+    background-color: #c5c6c7;
+    color: #000000;
+    border-radius: 10px;
+    padding: 40px 40px;
+  }
