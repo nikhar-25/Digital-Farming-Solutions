@@ -43,7 +43,7 @@ def recommend():
         final_features = np.array([[N, P, K, temperature, humidity, ph, rainfall]])
         prediction = model.predict(final_features)
         output = prediction[0]
-        return render_template('crop.html', prediction_text=' {}'.format(output))
+        return render_template('crop.html', prediction_text='The Recomended Crop for you is : {}'.format(output))
     model.close()
 
 @app.route('/Suggest',methods=['POST'])
@@ -82,7 +82,7 @@ def suggest():
             else:
                 output = "Low in Potassium"
                 
-        return render_template('fertiliser.html', prediction_text=' {}'.format(output))
+        return render_template('fertiliser.html', prediction_text='The Soil content is : {}'.format(output))
 
 
 @app.route('/Predict',methods=['POST'])
@@ -110,7 +110,7 @@ def predict():
        else:
            output = "Damage due to Pesticides"
          
-       return render_template('health.html', prediction_text=' {}'.format(output))
+       return render_template('health.html', prediction_text='The Damage Severity for your Crop is : {}'.format(output))
     model1.close()
 
 
