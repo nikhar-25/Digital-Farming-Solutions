@@ -87,7 +87,7 @@ def suggest():
 
 @app.route('/Predict',methods=['POST'])
 def predict():
-    model1 = pickle.load(open('model1.pkl', 'rb'))
+    model1 = pickle.load(open('health.pkl', 'rb'))
     if request.method == 'POST':
        Estimated_Insects_Count = int(request.form['Estimated_Insects_Count'])
        Crop_Type = int(request.form['Crop_Type'])
