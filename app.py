@@ -98,13 +98,13 @@ def predict():
        Number_Weeks_Quit = int(request.form['Number_Weeks_Quit'])
        Season = int(request.form['Season'])
        
-       f1 = np.array([[Estimated_Insects_Count,Number_Doses_Week,Number_Weeks_Used,Number_Weeks_Quit]])
-
-       f2 = np.array([[Crop_Type,Soil_Type,Pesticide_Use_Category,Season]])
-
+       f1 = np.array([[Estimated_Insects_Count]])
+       f2 = np.array([Crop_Type,Soil_Type,Pesticide_Use_Category,Season])
        f2 = pd.get_dummies(f2)
-
-       final_features = np.concatenate((f1, f2), axis=None)
+       f3 = np.array([[Number_Doses_Week,Number_Weeks_Used,Number_Weeks_Quit]])
+       f4 = np.array([Season])
+       f4 = pd.get_dummies(f4)
+       final_features = np.concatenate((f1, f2, f3, f4), axis=None)
 
        prediction = model.predict(final_features)
        output = prediction[0]
