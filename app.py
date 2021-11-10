@@ -99,7 +99,7 @@ def predict():
        Season = int(request.form['Season'])
        
        f1 = np.array([[Estimated_Insects_Count]])
-       f2 = np.array([Crop_Type,Soil_Type,Pesticide_Use_Category,Season])
+       f2 = np.array([Crop_Type,Soil_Type,Pesticide_Use_Category])
        f2 = pd.get_dummies(f2)
        f3 = np.array([[Number_Doses_Week,Number_Weeks_Used,Number_Weeks_Quit]])
        f4 = np.array([Season])
