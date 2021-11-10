@@ -106,7 +106,7 @@ def predict():
        f4 = pd.get_dummies(f4)
        final_features = np.concatenate((f1, f2, f3, f4), axis=None)
 
-       prediction = model.predict(final_features)
+       prediction = model1.predict(final_features)
        output = prediction[0]
 
        if output== 0:
