@@ -100,7 +100,13 @@ def predict():
        
        final_features = np.array([[Estimated_Insects_Count,Crop_Type,Soil_Type,Pesticide_Use_Category,
        Number_Doses_Week,Number_Weeks_Used,Number_Weeks_Quit,Season]])
-       prediction = model1.predict(final_features)
+       
+       cat_features = ['Crop_Type','Soil_Type','Pesticide_Use_Category','Season']
+       final_features[cat_features] = final_features[cat_features].astype(str)
+       
+       final_features = pd.get_dummies(final_features)
+
+       prediction = model.predict(final_features)
        output = prediction[0]
 
        if output== 0:
