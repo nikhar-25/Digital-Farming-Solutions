@@ -98,17 +98,15 @@ def predict():
        Number_Weeks_Quit = int(request.form['Number_Weeks_Quit'])
        Season = int(request.form['Season'])
        
-       f1 = np.array([[Estimated_Insects_Count]])
-       f2 = np.array([Crop_Type,Soil_Type,Pesticide_Use_Category])
-       f2 = pd.get_dummies(f2)
-       f3 = np.array([[Number_Doses_Week,Number_Weeks_Used,Number_Weeks_Quit]])
-       f4 = np.array([Season])
-       f4 = pd.get_dummies(f4)
-       final_features = np.concatenate((f1, f2, f3, f4), axis=None)
+       data = [[Estimated_Insects_Count, Crop_Type, Soil_Type, Pesticide_Use_Category, Number_Doses_Week, Number_Weeks_Used, Number_Weeks_Quit, Season]]
+       df = pd.DataFrame(data, columns = ['Estimated_Insects_Count', 'Crop_Type', 'Soil_Type', 'Pesticide_Use_Category', 'Number_Doses_Week', 'Number_Weeks_Used', 'Number_Weeks_Quit', 'Season'])
+       
+       cat_features = ['Crop_Type','Soil_Type','Pesticide_Use_Category','Season']
+       df[cat_features] = df[cat_features].astype(str)
+       
+       df = pd.get_dummies(df)
 
-       final_features = final_features.reshape(1, -1)
-
-       prediction = model1.predict(final_features)
+       prediction = model1.predict(df)
        output = prediction[0]
 
        if output== 0:
