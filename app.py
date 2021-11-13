@@ -92,7 +92,7 @@ def predict():
        Estimated_Insects_Count = int(request.form['Estimated_Insects_Count'])
        
        Crop_Type = int(request.form['Crop_Type'])
-       if(Crop_Type = 0):
+       if(Crop_Type == 0):
            Crop_Type_0 = 1
            Crop_Type_1 = 0
        else:
@@ -100,7 +100,7 @@ def predict():
            Crop_Type_1 = 1
        
        Soil_Type = int(request.form['Soil_Type'])
-       if(Soil_Type = 0):
+       if(Soil_Type == 0):
            Soil_Type_0 = 1
            Soil_Type_1 = 0
        else:
@@ -108,7 +108,7 @@ def predict():
            Soil_Type_1 = 1
        
        Pesticide_Use_Category = int(request.form['Pesticide_Use_Category'])
-       if(Pesticide_Use_Category = 1):
+       if(Pesticide_Use_Category == 1):
            Pesticide_Use_Category_1 = 1
            Pesticide_Use_Category_2 = 0
            Pesticide_Use_Category_3 = 0
@@ -126,7 +126,7 @@ def predict():
        Number_Weeks_Quit = int(request.form['Number_Weeks_Quit'])
        
        Season = int(request.form['Season'])
-       if(Season = 1):
+       if(Season == 1):
            Season_1 = 1
            Season_2 = 0
            Season_3 = 0
