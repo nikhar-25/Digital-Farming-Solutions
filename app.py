@@ -112,7 +112,7 @@ def predict():
            Pesticide_Use_Category_1 = 1
            Pesticide_Use_Category_2 = 0
            Pesticide_Use_Category_3 = 0
-       elif(Pesticide_Use_Category = 2):
+       elif(Pesticide_Use_Category == 2):
            Pesticide_Use_Category_1 = 0
            Pesticide_Use_Category_2 = 1
            Pesticide_Use_Category_3 = 0
