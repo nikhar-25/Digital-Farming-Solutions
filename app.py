@@ -90,23 +90,57 @@ def predict():
     model1 = pickle.load(open('health.pkl', 'rb'))
     if request.method == 'POST':
        Estimated_Insects_Count = int(request.form['Estimated_Insects_Count'])
+       
        Crop_Type = int(request.form['Crop_Type'])
+       if (Crop_Type = 0):
+           Crop_Type_0 = 1
+           Crop_Type_1 = 0
+       else:
+           Crop_Type_0 = 0
+           Crop_Type_1 = 1
+       
        Soil_Type = int(request.form['Soil_Type'])
+       if(Soil_Type = 0):
+           Soil_Type_0 = 1
+           Soil_Type_1 = 0
+       else:
+           Soil_Type_0 = 0
+           Soil_Type_1 = 1
+       
        Pesticide_Use_Category = int(request.form['Pesticide_Use_Category'])
+       if(Pesticide_Use_Category = 1):
+           Pesticide_Use_Category_1 = 1
+           Pesticide_Use_Category_2 = 0
+           Pesticide_Use_Category_3 = 0
+       elif(Pesticide_Use_Category = 2):
+           Pesticide_Use_Category_1 = 0
+           Pesticide_Use_Category_2 = 1
+           Pesticide_Use_Category_3 = 0
+       else:
+           Pesticide_Use_Category_1 = 0
+           Pesticide_Use_Category_2 = 0
+           Pesticide_Use_Category_3 = 1
+       
        Number_Doses_Week = int(request.form['Number_Doses_Week'])
        Number_Weeks_Used = int(request.form['Number_Weeks_Used'])
        Number_Weeks_Quit = int(request.form['Number_Weeks_Quit'])
+       
        Season = int(request.form['Season'])
-       
-       data = [[Estimated_Insects_Count, Crop_Type, Soil_Type, Pesticide_Use_Category, Number_Doses_Week, Number_Weeks_Used, Number_Weeks_Quit, Season]]
-       df = pd.DataFrame(data, columns = ['Estimated_Insects_Count', 'Crop_Type', 'Soil_Type', 'Pesticide_Use_Category', 'Number_Doses_Week', 'Number_Weeks_Used', 'Number_Weeks_Quit', 'Season'])
-       
-       cat_features = ['Crop_Type','Soil_Type','Pesticide_Use_Category','Season']
-       df[cat_features] = df[cat_features].astype(str)
-       
-       df = pd.get_dummies(df)
+       if(Season = 1):
+           Season_1 = 1
+           Season_2 = 0
+           Season_3 = 0
+       elif(Pesticide_Use_Category = 2):
+           Season_1 = 0
+           Season_2 = 1
+           Season_3 = 0
+       else:
+           Season_1 = 0
+           Season_2 = 0
+           Season_3 = 1
 
-       prediction = model1.predict(df)
+       final_features = np.array([[Estimated_Insects_Count,Number_Doses_Week, Number_Weeks_Used, Number_Weeks_Quit, Crop_Type_0, Crop_Type_1, Soil_Type_0, Soil_Type_1, Pesticide_Use_Category_1, Pesticide_Use_Category_2, Pesticide_Use_Category_3, Season_1, Season_2, Season_3]])
+       prediction = model1.predict(final_features)
        output = prediction[0]
 
        if output== 0:
