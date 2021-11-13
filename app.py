@@ -92,7 +92,7 @@ def predict():
        Estimated_Insects_Count = int(request.form['Estimated_Insects_Count'])
        
        Crop_Type = int(request.form['Crop_Type'])
-       if (Crop_Type = 0):
+       if(Crop_Type = 0):
            Crop_Type_0 = 1
            Crop_Type_1 = 0
        else:
