@@ -130,7 +130,7 @@ def predict():
            Season_1 = 1
            Season_2 = 0
            Season_3 = 0
-       elif(Pesticide_Use_Category = 2):
+       elif(Season == 2):
            Season_1 = 0
            Season_2 = 1
            Season_3 = 0
